@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Care · Pet Pal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="care.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- Top navigation -->
+  <div class="topbar">
+    <div class="brand">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21c-4-1-8-4.2-8-8.6C4 9 6.5 7 9 8c1 .4 1.6 1.2 3 1.2S13 8.4 14 8c2.5-1 5 1 5 4.4 0 4.4-4 7.6-8 8.6Z" fill="#F7F1E3"/>
+        </svg>
+      </span>
+      Pet Pal
+    </div>
+    <nav class="nav-pages" aria-label="Pet Pal sections">
+      <a href="care.html" class="active">🍖 Daily Care</a>
+      <a href="#" tabindex="-1" aria-disabled="true">🚶 Walk Tracker</a>
+      <a href="#" tabindex="-1" aria-disabled="true">📖 Walk History</a>
+      <a href="#" tabindex="-1" aria-disabled="true">😊 Mood Tracker</a>
+      <a href="#" tabindex="-1" aria-disabled="true">🏆 Activity</a>
+    </nav>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-card">
+      <div class="hero-eyebrow"><span class="dot"></span> Daily Care · Today</div>
+      <h1>Good morning! Let's take care of <em id="petNameHero">Bruno</em> today.</h1>
+      <p class="hero-sub">Track meals, walks and grooming in one place — check things off as you go and Pal keeps the streak alive.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="markAllVisible()">✓ Mark everything done</button>
+        <button class="btn btn-ghost" onclick="resetDay()">↺ Reset today</button>
+      </div>
+    </div>
+
+    <div class="trail-card">
+      <div class="trail-head">
+        <h3>Today's paw trail</h3>
+        <span class="trail-pct" id="trailPct">0%</span>
+      </div>
+      <p class="trail-sub">Every task fills a paw print. Fill them all to reach the doghouse!</p>
+      <div class="paw-row" id="pawRow">
+        <!-- paws injected by JS -->
+        <div class="paw-den" title="Finish the day">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 21V11L12 4l8 7v10h-5v-6H9v6H4Z" fill="#2C4A3B"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Care cards -->
+  <div class="section-head">
+    <h2>Today's care</h2>
+    <span class="section-note">Feeding · Walking · Grooming</span>
+  </div>
+
+  <div class="grid">
+
+    <!-- Feeding -->
+    <div class="card">
+      <div class="card-head">
+        <div class="icon-badge feed">🍖</div>
+        <div>
+          <div class="card-title">Feeding</div>
+          <div class="card-meta" id="mealMeta">0 of 3 meals logged</div>
+        </div>
+      </div>
+
+      <div class="meal-list" id="mealList">
+        <div class="meal-item" data-meal="breakfast">
+          <div class="meal-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#F7F1E3" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="meal-text">
+            <div class="meal-name">Breakfast</div>
+            <div class="meal-time">7:30 AM · <span class="meal-qty">1 cup</span></div>
+          </div>
+          <div class="qty-stepper">
+            <button class="qty-btn" onclick="stepQty(event,'breakfast',-1)">−</button>
+            <button class="qty-btn" onclick="stepQty(event,'breakfast',1)">+</button>
+          </div>
+        </div>
+        <div class="meal-item" data-meal="lunch">
+          <div class="meal-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#F7F1E3" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="meal-text">
+            <div class="meal-name">Lunch</div>
+            <div class="meal-time">1:00 PM · <span class="meal-qty">1 cup</span></div>
+          </div>
+          <div class="qty-stepper">
+            <button class="qty-btn" onclick="stepQty(event,'lunch',-1)">−</button>
+            <button class="qty-btn" onclick="stepQty(event,'lunch',1)">+</button>
+          </div>
+        </div>
+        <div class="meal-item" data-meal="dinner">
+          <div class="meal-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#F7F1E3" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="meal-text">
+            <div class="meal-name">Dinner</div>
+            <div class="meal-time">7:00 PM · <span class="meal-qty">1.5 cups</span></div>
+          </div>
+          <div class="qty-stepper">
+            <button class="qty-btn" onclick="stepQty(event,'dinner',-1)">−</button>
+            <button class="qty-btn" onclick="stepQty(event,'dinner',1)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Walking -->
+    <div class="card">
+      <div class="card-head">
+        <div class="icon-badge walk">🚶</div>
+        <div>
+          <div class="card-title">Walking</div>
+          <div class="card-meta" id="walkMeta">No walk logged yet</div>
+        </div>
+      </div>
+
+      <div class="walk-timer">
+        <div>
+          <div class="clock-lbl">Live timer</div>
+          <div class="clock" id="walkClock">00:00</div>
+        </div>
+        <button class="walk-toggle" id="walkBtn" onclick="toggleWalk()">Start walk</button>
+      </div>
+
+      <div class="walk-stats">
+        <div class="stat-pill"><span class="num" id="walkDist">0.0</span><span class="lbl">km today</span></div>
+        <div class="stat-pill"><span class="num" id="walkCount">0</span><span class="lbl">walks today</span></div>
+      </div>
+
+      <p class="walk-log">Last walk: <b id="lastWalk">—</b></p>
+    </div>
+
+    <!-- Grooming -->
+    <div class="card">
+      <div class="card-head">
+        <div class="icon-badge groom">🧼</div>
+        <div>
+          <div class="card-title">Grooming</div>
+          <div class="card-meta" id="groomMeta">0 of 4 done</div>
+        </div>
+      </div>
+
+      <div class="groom-list" id="groomList">
+        <div class="groom-item" data-groom="brush">
+          <div class="groom-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#F7F1E3" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span>Brush coat</span>
+          <span class="groom-freq">Daily</span>
+        </div>
+        <div class="groom-item" data-groom="teeth">
+          <div class="groom-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#F7F1E3" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span>Brush teeth</span>
+          <span class="groom-freq">Daily</span>
+        </div>
+        <div class="groom-item" data-groom="ears">
+          <div class="groom-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#F7F1E3" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span>Check ears</span>
+          <span class="groom-freq">Weekly</span>
+        </div>
+        <div class="groom-item" data-groom="nails">
+          <div class="groom-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#F7F1E3" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span>Trim nails</span>
+          <span class="groom-freq">Weekly</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Checklist + Progress -->
+  <div class="lower-grid">
+
+    <div class="checklist-card">
+      <div class="section-head" style="margin:0 0 4px;">
+        <h2 style="font-size:1.1rem;">✅ Full daily checklist</h2>
+        <span class="section-note" id="checklistMeta">0 / 6</span>
+      </div>
+
+      <div id="fullChecklist">
+        <div class="check-row" data-key="c-breakfast">
+          <div class="big-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#F7F1E3" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="ctext"><div class="ctitle">Feed breakfast</div><div class="csub">7:30 AM</div></div>
+          <span class="ctag">Feeding</span>
+        </div>
+        <div class="check-row" data-key="c-walk">
+          <div class="big-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#F7F1E3" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="ctext"><div class="ctitle">Morning walk</div><div class="csub">At least 15 minutes</div></div>
+          <span class="ctag">Walking</span>
+        </div>
+        <div class="check-row" data-key="c-brush">
+          <div class="big-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#F7F1E3" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="ctext"><div class="ctitle">Brush coat</div><div class="csub">Removes loose fur</div></div>
+          <span class="ctag">Grooming</span>
+        </div>
+        <div class="check-row" data-key="c-lunch">
+          <div class="big-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#F7F1E3" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="ctext"><div class="ctitle">Feed lunch</div><div class="csub">1:00 PM</div></div>
+          <span class="ctag">Feeding</span>
+        </div>
+        <div class="check-row" data-key="c-water">
+          <div class="big-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#F7F1E3" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="ctext"><div class="ctitle">Refresh water bowl</div><div class="csub">Clean water, twice a day</div></div>
+          <span class="ctag">Feeding</span>
+        </div>
+        <div class="check-row" data-key="c-dinner">
+          <div class="big-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#F7F1E3" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="ctext"><div class="ctitle">Feed dinner</div><div class="csub">7:00 PM</div></div>
+          <span class="ctag">Feeding</span>
+        </div>
+      </div>
+
+      <div class="encourage" id="encourageBox">
+        <b>Tip:</b> checking items here also updates the progress ring and paw trail — everything on this page stays in sync.
+      </div>
+    </div>
+
+    <div class="progress-card">
+      <div class="progress-ring-wrap">
+        <div class="ring-holder">
+          <svg width="150" height="150" viewBox="0 0 150 150">
+            <circle class="ring-bg" cx="75" cy="75" r="62"/>
+            <circle class="ring-fg" id="ringFg" cx="75" cy="75" r="62" stroke-dasharray="389.6" stroke-dashoffset="389.6"/>
+          </svg>
+          <div class="ring-center">
+            <span class="big" id="ringPct">0%</span>
+            <span class="small">complete</span>
+          </div>
+        </div>
+
+        <div class="streak-row">
+          <div class="streak-info">
+            <div class="num" id="streakNum">4🔥</div>
+            <div class="lbl">day streak</div>
+          </div>
+          <div class="week-dots" id="weekDots">
+            <!-- 7 dots injected -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Pet Pal · Daily Care — Phase 1 · Made with 🐾 by Team Pet Pal</footer>
+</div>
+
+<div id="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
