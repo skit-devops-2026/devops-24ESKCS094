@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetPal — Modern Pet-Care & Management Platform</title>
+  
+  <!-- Modern SaaS Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Ambient Floating Background Elements & Glows -->
+  <div class="ambient-background" aria-hidden="true">
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+    <div class="floating-orb orb-3"></div>
+    <div class="floating-paw paw-bg-1">🐾</div>
+    <div class="floating-paw paw-bg-2">🐾</div>
+    <div class="floating-paw paw-bg-3">🐾</div>
+    <div class="floating-paw paw-bg-4">🐾</div>
+  </div>
+  <!-- Mobile Drawer Overlay -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <!-- App Wrapper: Sidebar + Main Layout -->
+  <div class="app-layout">
+    <!-- ========================================== -->
+    <!-- 1. LEFT SIDEBAR (DARK FOREST GREEN)        -->
+    <!-- ========================================== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="brand-logo">
+          <div class="logo-icon-3d">
+            <svg viewBox="0 0 32 32" class="paw-svg" fill="currentColor">
+              <ellipse cx="16" cy="20" rx="6" ry="5.5" />
+              <ellipse cx="10" cy="12" rx="2.5" ry="3.5" transform="rotate(-15 10 12)" />
+              <ellipse cx="14" cy="9.5" rx="2.4" ry="3.5" transform="rotate(-5 14 9.5)" />
+              <ellipse cx="18" cy="9.5" rx="2.4" ry="3.5" transform="rotate(5 18 9.5)" />
+              <ellipse cx="22" cy="12" rx="2.5" ry="3.5" transform="rotate(15 22 12)" />
+            </svg>
+              </div>
+          <span class="brand-text">PetPal</span>
+        </a>
+        <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close Menu">✕</button>
+      </div>
