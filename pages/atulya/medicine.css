@@ -1,0 +1,847 @@
+/* =========================================================
+   PETPAL - MEDICINE TRACKER
+   ========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f1e3;
+    color: #234536;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   2. HEADER / NAVIGATION
+   ========================================================= */
+
+.main-header {
+    width: 100%;
+    max-width: 1100px;
+    margin: 24px auto 30px;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* PetPal Logo */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+
+.brand-icon {
+    width: 44px;
+    height: 44px;
+
+    background: #285441;
+    color: #ffffff;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+
+    box-shadow: 0 5px 12px rgba(35, 69, 54, 0.15);
+}
+
+
+.brand h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    color: #234536;
+}
+
+
+/* Navigation */
+
+.navbar {
+    background: #fffdf8;
+
+    border: 1px solid #e4d8bd;
+
+    border-radius: 35px;
+
+    padding: 6px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+
+    box-shadow: 0 5px 15px rgba(60, 50, 30, 0.08);
+}
+
+
+.navbar a {
+    text-decoration: none;
+
+    color: #3e5047;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    padding: 11px 15px;
+
+    border-radius: 25px;
+
+    white-space: nowrap;
+
+    transition: all 0.25s ease;
+}
+
+
+.navbar a:hover {
+    background: #eef1e5;
+}
+
+
+/* Active Health & Records */
+
+.navbar a.active {
+    background: #285441;
+    color: #ffffff;
+
+    box-shadow: 0 4px 10px rgba(35, 69, 54, 0.18);
+}
+
+
+/* =========================================================
+   3. MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 0 20px 50px;
+}
+
+
+/* =========================================================
+   4. HERO SECTION
+   ========================================================= */
+
+.hero-section {
+    min-height: 260px;
+
+    background: #214b3a;
+
+    border-radius: 28px;
+
+    padding: 45px 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    position: relative;
+
+    box-shadow: 0 15px 30px rgba(35, 69, 54, 0.12);
+}
+
+
+.hero-section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    right: 40px;
+    top: -90px;
+
+    background: rgba(220, 166, 58, 0.08);
+
+    border-radius: 50%;
+}
+
+
+/* Hero Content */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 650px;
+}
+
+
+.hero-label {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #e4c16a;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 16px;
+}
+
+
+.hero-dot {
+    width: 10px;
+    height: 10px;
+
+    background: #e1aa3b;
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 0 5px rgba(225, 170, 59, 0.15);
+}
+
+
+.hero-content h2 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 46px;
+
+    line-height: 1.15;
+
+    color: #ffffff;
+
+    margin-bottom: 14px;
+}
+
+
+.hero-content h2 span {
+    color: #e0aa3d;
+}
+
+
+.hero-content p {
+    color: #e7eee9;
+
+    font-size: 17px;
+
+    max-width: 580px;
+}
+
+
+/* Hero Medicine Icon */
+
+.hero-visual {
+    position: relative;
+    z-index: 2;
+
+    width: 150px;
+    height: 150px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 75px;
+
+    transform: rotate(-8deg);
+}
+
+
+/* =========================================================
+   5. MEDICINE CONTENT
+   ========================================================= */
+
+.medicine-content {
+    display: grid;
+
+    grid-template-columns: 0.9fr 1.6fr;
+
+    gap: 22px;
+
+    margin-top: 22px;
+}
+
+
+/* =========================================================
+   6. COMMON CARD STYLE
+   ========================================================= */
+
+.medicine-form-section,
+.medicine-list-section {
+    background: #fffdf8;
+
+    border: 1px solid #e3d7bc;
+
+    border-radius: 24px;
+
+    padding: 28px;
+
+    box-shadow: 0 8px 22px rgba(65, 54, 30, 0.06);
+}
+
+
+.medicine-form-section h2,
+.medicine-list-section h2 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    color: #234536;
+
+    font-size: 25px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   7. FORM
+   ========================================================= */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+
+.form-group label {
+    display: block;
+
+    color: #29473a;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #ded3bb;
+
+    border-radius: 11px;
+
+    background: #fffefa;
+
+    color: #33483e;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+
+.form-group input::placeholder {
+    color: #8a8c82;
+}
+
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #8aa68e;
+
+    box-shadow: 0 0 0 3px rgba(92, 125, 99, 0.12);
+}
+
+
+/* Two-column form rows */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+}
+
+
+/* Add Medicine Button */
+
+.add-btn {
+    width: 100%;
+
+    margin-top: 8px;
+
+    padding: 14px 20px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #dda53a;
+
+    color: #173c2d;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+    box-shadow: 0 5px 12px rgba(180, 130, 35, 0.18);
+}
+
+
+.add-btn:hover {
+    background: #e6b34b;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 16px rgba(180, 130, 35, 0.22);
+}
+
+
+.add-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   8. MY MEDICINES HEADER
+   ========================================================= */
+
+.section-heading {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+
+.section-heading h2 {
+    margin-bottom: 0;
+}
+
+
+#medicineCount {
+    background: #f5eddb;
+
+    color: #6c5a32;
+
+    border: 1px solid #e4d5b4;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   9. MEDICINE LIST HEADER
+   ========================================================= */
+
+.medicine-list-header {
+    display: grid;
+
+    grid-template-columns:
+        1.4fr
+        0.8fr
+        1fr
+        1fr
+        0.8fr;
+
+    gap: 10px;
+
+    padding: 13px 15px;
+
+    background: #faf6eb;
+
+    border-radius: 12px;
+
+    color: #3e5147;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-align: center;
+
+    margin-bottom: 8px;
+}
+
+
+.medicine-list-header span:first-child {
+    text-align: left;
+}
+
+
+/* =========================================================
+   10. MEDICINE LIST
+   ========================================================= */
+
+.medicine-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.empty-message {
+    text-align: center;
+
+    padding: 30px 15px;
+
+    color: #85867c;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   11. MEDICINE REMINDER
+   ========================================================= */
+
+.medicine-reminder {
+    margin-top: 15px;
+
+    padding: 15px;
+
+    border: 1px solid #e3d7bc;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background: #fffdf8;
+}
+
+
+.reminder-icon {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    background: #e9f0e5;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+}
+
+
+.medicine-reminder p {
+    color: #42574c;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   12. NOTE SECTION
+   ========================================================= */
+
+.medicine-note {
+    margin-top: 20px;
+
+    padding: 20px 25px;
+
+    border: 1px solid #e4d8bd;
+
+    border-radius: 20px;
+
+    background: rgba(255, 253, 248, 0.65);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.note-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    background: #285441;
+
+    color: #e2ad42;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 19px;
+}
+
+
+.note-content h3 {
+    color: #234536;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 17px;
+
+    margin-bottom: 2px;
+}
+
+
+.note-content p {
+    color: #77776c;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   13. RESPONSIVE DESIGN
+   ========================================================= */
+
+
+/* Tablets */
+
+@media (max-width: 900px) {
+
+    .main-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+
+    .brand {
+        justify-content: center;
+    }
+
+
+    .navbar {
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        border-radius: 20px;
+    }
+
+
+    .medicine-content {
+        grid-template-columns: 1fr;
+    }
+
+
+    .hero-section {
+        padding: 40px;
+    }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .main-header {
+        margin-top: 15px;
+
+        padding: 0 12px;
+    }
+
+
+    .main-content {
+        padding: 0 12px 35px;
+    }
+
+
+    .navbar {
+        width: 100%;
+
+        justify-content: flex-start;
+
+        overflow-x: auto;
+
+        flex-wrap: nowrap;
+    }
+
+
+    .navbar a {
+        font-size: 12px;
+
+        padding: 9px 11px;
+    }
+
+
+    .hero-section {
+        min-height: auto;
+
+        padding: 32px 25px;
+
+        border-radius: 22px;
+    }
+
+
+    .hero-content h2 {
+        font-size: 34px;
+    }
+
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+
+    .hero-visual {
+        display: none;
+    }
+
+
+    .medicine-form-section,
+    .medicine-list-section {
+        padding: 22px 18px;
+    }
+
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+
+    .medicine-list-header {
+        display: none;
+    }
+
+
+    .medicine-note {
+        padding: 18px;
+    }
+
+}
+
+/* =========================================================
+   MEDICINE RECORD ITEMS
+   ========================================================= */
+
+.medicine-item {
+    display: grid;
+
+    grid-template-columns:
+        1.4fr
+        0.8fr
+        1fr
+        1fr
+        0.8fr;
+
+    gap: 10px;
+
+    align-items: center;
+
+    padding: 15px;
+
+    border: 1px solid #e3d7bc;
+
+    border-radius: 14px;
+
+    background: #fffdf8;
+
+    color: #33483e;
+
+    font-size: 13px;
+}
+
+
+.medicine-name {
+    text-align: left;
+}
+
+
+.medicine-name strong {
+    font-size: 14px;
+
+    color: #234536;
+}
+
+
+.medicine-dosage,
+.medicine-frequency,
+.medicine-duration {
+    text-align: center;
+}
+
+
+.medicine-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+}
+
+
+.delete-btn {
+    width: 36px;
+    height: 36px;
+
+    border: 1px solid #d58b82;
+
+    border-radius: 50%;
+
+    background: #fff8f6;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: all 0.2s ease;
+}
+
+
+.delete-btn:hover {
+    background: #f7dfdb;
+
+    transform: translateY(-2px);
+}

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PetPal - Medicine Tracker</title>
+
+    <link rel="stylesheet" href="medicine.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
+
+    <header class="main-header">
+
+        <div class="brand">
+            <div class="brand-icon">♥</div>
+            <h1>PetPal</h1>
+        </div>
+
+        <nav class="navbar">
+
+            <a href="../bhumika/care.html">
+                🍲 Daily Care
+            </a>
+
+            <a href="../bhumika/walk.html">
+                🏃 Walk Tracker
+            </a>
+
+            <a href="../bhumika/walk-history.html">
+                📖 Walk History
+            </a>
+
+            <a href="../bhumika/mood.html">
+                😊 Mood Tracker
+            </a>
+
+            <a href="../bhumika/activity.html">
+                🏆 Activity
+            </a>
+
+            <!-- CURRENT SECTION -->
+            <a href="medicine.html" class="active">
+                💊 Health & Records
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+
+        <!-- =========================
+             HERO SECTION
+        ========================== -->
+
+        <section class="hero-section">
+
+            <div class="hero-content">
+
+                <div class="hero-label">
+                    <span class="hero-dot"></span>
+                    HEALTH & RECORDS
+                </div>
+
+                <h2>
+                    Medicine <span>Tracker</span>
+                </h2>
+
+                <p>
+                    Keep track of your pet's medicines, dosage
+                    and schedules in one place.
+                </p>
+
+            </div>
+
+            <div class="hero-visual">
+                💊
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             MEDICINE CONTENT
+        ========================== -->
+
+        <section class="medicine-content">
+
+
+            <!-- =========================
+                 ADD MEDICINE
+            ========================== -->
+
+            <section class="medicine-form-section">
+
+                <h2>Add Medicine</h2>
+
+                <form id="medicineForm">
+
+
+                    <!-- Medicine Name -->
+
+                    <div class="form-group">
+
+                        <label for="medicineName">
+                            Medicine Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="medicineName"
+                            placeholder="Enter medicine name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Dosage and Frequency -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="dosage">
+                                Dosage
+                            </label>
+
+                            <input
+                                type="text"
+                                id="dosage"
+                                placeholder="e.g. 1 tablet"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="frequency">
+                                Frequency
+                            </label>
+
+                            <select id="frequency" required>
+
+                                <option value="">
+                                    Select frequency
+                                </option>
+
+                                <option value="Once a day">
+                                    Once a day
+                                </option>
+
+                                <option value="Twice a day">
+                                    Twice a day
+                                </option>
+
+                                <option value="Three times a day">
+                                    Three times a day
+                                </option>
+
+                                <option value="As needed">
+                                    As needed
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Start Date and End Date -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="startDate">
+                                Start Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="startDate"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="endDate">
+                                End Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="endDate"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Add Button -->
+
+                    <button
+                        type="submit"
+                        class="add-btn"
+                    >
+                        + Add Medicine
+                    </button>
+
+                </form>
+
+            </section>
+
+
+
+            <!-- =========================
+                 MY MEDICINES
+            ========================== -->
+
+            <section class="medicine-list-section">
+
+
+                <!-- Section Heading -->
+
+                <div class="section-heading">
+
+                    <h2>
+                        My Medicines
+                    </h2>
+
+                    <span id="medicineCount">
+                        0 medicines
+                    </span>
+
+                </div>
+
+
+                <!-- Medicine List Header -->
+
+                <div class="medicine-list-header">
+
+                    <span>Medicine</span>
+
+                    <span>Dosage</span>
+
+                    <span>Frequency</span>
+
+                    <span>Duration</span>
+
+                    <span>Actions</span>
+
+                </div>
+
+
+                <!-- Medicine Records -->
+
+                <div
+                    id="medicineList"
+                    class="medicine-list"
+                >
+
+                    <p class="empty-message">
+                        No medicines added yet.
+                    </p>
+
+                </div>
+
+
+                <!-- Reminder -->
+
+                <div class="medicine-reminder">
+
+                    <span class="reminder-icon">
+                        📅
+                    </span>
+
+                    <p>
+                        Stay consistent with your pet's
+                        medicine routine!
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- =========================
+             NOTE SECTION
+        ========================== -->
+
+        <section class="medicine-note">
+
+            <div class="note-icon">
+                💡
+            </div>
+
+            <div class="note-content">
+
+                <h3>
+                    Note
+                </h3>
+
+                <p>
+                    Always follow your vet's advice and
+                    complete the full course of medicines.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="medicine.js"></script>
+
+</body>
+
+</html>
