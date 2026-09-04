@@ -56,3 +56,5 @@ Open `http://localhost:3000`.
 ## Jenkins
 
 The `Jenkinsfile` defines a pipeline with Checkout, Test and Docker Build stages.
+## DevOps
+This project uses automated tests and continuous integration.
