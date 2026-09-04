@@ -33,7 +33,7 @@ function request(path) {
 
 test('homepage is served successfully', async () => {
   const response = await request('/');
-  assert.equal(response.status, 201);
+  assert.equal(response.status, 200);
   assert.match(response.type, /text\/html/);
   assert.match(response.body, /PetPal/);
 });
