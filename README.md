@@ -63,3 +63,10 @@ Testing is automatically performed through GitHub Actions.
 
 The project follows a DevOps workflow using GitHub Actions for automated testing, Docker for containerization, and Jenkins for continuous integration.
 
+## Jenkins Pipeline
+
+The Jenkins pipeline includes:
+1. Checkout
+2. Environment Check
+3. Automated Tests
+4. Docker Build
