@@ -58,3 +58,4 @@ Open `http://localhost:3000`.
 The `Jenkinsfile` defines a pipeline with Checkout, Test and Docker Build stages.
 ## DevOps
 This project uses automated tests and continuous integration.
+Testing is automatically performed through GitHub Actions.
