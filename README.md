@@ -59,3 +59,7 @@ The `Jenkinsfile` defines a pipeline with Checkout, Test and Docker Build stages
 ## DevOps
 This project uses automated tests and continuous integration.
 Testing is automatically performed through GitHub Actions.
+## DevOps Workflow
+
+The project follows a DevOps workflow using GitHub Actions for automated testing, Docker for containerization, and Jenkins for continuous integration.
+
