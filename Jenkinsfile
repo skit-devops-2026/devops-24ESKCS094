@@ -8,6 +8,13 @@ pipeline {
             }
         }
 
+        stage('Environment Check') {
+            steps {
+                bat 'node --version'
+                bat 'npm --version'
+            }
+        }
+
         stage('Test') {
             steps {
                 bat 'npm test'
