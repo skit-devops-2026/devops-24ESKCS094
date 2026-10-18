@@ -5,5 +5,8 @@
   "description": "PetPal pet-care management web application",
   "scripts": {
     "test": "node --test"
+  },
+  "dependencies": {
+    "prom-client": "^15.1.3"
   }
 }
