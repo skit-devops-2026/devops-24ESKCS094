@@ -70,3 +70,11 @@ The Jenkins pipeline includes:
 2. Environment Check
 3. Automated Tests
 4. Docker Build
+
+## Live Deployment
+
+- **Application URL:** https://devops-24eskcs094.onrender.com/
+- **Hosting Platform:** Render
+- **Containerization:** Docker
+- **Monitoring:** Prometheus and Grafana
+
