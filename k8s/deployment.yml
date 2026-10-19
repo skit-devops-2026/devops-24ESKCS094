@@ -1,0 +1,24 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petpal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: petpal
+  template:
+    metadata:
+      labels:
+        app: petpal
+    spec:
+      containers:
+        - name: petpal
+          image: chaitanya7270/petpal:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              value: "3000"
