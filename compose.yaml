@@ -9,3 +9,13 @@ services:
     environment:
       PORT: "3000"
     restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+      - petpal
+    restart: unless-stopped
